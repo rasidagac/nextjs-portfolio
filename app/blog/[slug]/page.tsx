@@ -62,7 +62,7 @@ function formatDate(date: string) {
   let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
   let daysAgo = currentDate.getDate() - targetDate.getDate();
 
-  let formattedDate = '';
+  let formattedDate: string;
 
   if (yearsAgo > 0) {
     formattedDate = `${yearsAgo}y ago`;
@@ -104,12 +104,12 @@ export default function Blog({ params }) {
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
-              ? `https://leerob.io${post.metadata.image}`
-              : `https://leerob.io/og?title=${post.metadata.title}`,
-            url: `https://leerob.io/blog/${post.slug}`,
+              ? `https://rasidagac.com${post.metadata.image}`
+              : `https://rasidagac.com/og?title=${post.metadata.title}`,
+            url: `https://rasidagac.com/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Lee Robinson',
+              name: 'Rasid Agac',
             },
           }),
         }}
@@ -136,7 +136,7 @@ export default function Blog({ params }) {
 
 let incrementViews = cache(increment);
 
-async function Views({ slug }: { slug: string }) {
+async function Views({ slug }: Readonly<{ slug: string }>) {
   let views = await getViewsCount();
   incrementViews(slug);
   return <ViewCounter allViews={views} slug={slug} />;
