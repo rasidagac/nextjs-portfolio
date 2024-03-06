@@ -18,7 +18,7 @@ export default function BlogPage() {
         read my blog
       </h1>
       {allBlogs
-        .toSorted((a, b) => {
+        .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
           ) {
