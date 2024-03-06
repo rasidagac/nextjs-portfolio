@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {Suspense, useMemo} from 'react';
+import {Suspense} from 'react';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/db/queries';
 import { getBlogPosts } from 'app/db/blog';
@@ -12,17 +12,20 @@ export const metadata = {
 export default function BlogPage() {
   let allBlogs = getBlogPosts();
 
-  const sortedBlogArr = useMemo(() => allBlogs
-      .toSorted((a, b) =>
-          new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt) ? -1 : 1
-      ), []);
-
   return (
     <section>
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
         read my blog
       </h1>
-      {sortedBlogArr
+      {allBlogs
+        .toSorted((a, b) => {
+          if (
+            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
+          ) {
+            return -1;
+          }
+          return 1;
+        })
         .map((post) => (
           <Link
             key={post.slug}
