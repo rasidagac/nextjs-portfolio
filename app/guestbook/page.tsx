@@ -1,12 +1,12 @@
-import { auth } from 'app/auth';
-import { getGuestbookEntries } from 'app/db/queries';
-import { SignIn, SignOut } from './buttons';
-import { Suspense } from 'react';
-import Form from './form';
+import { auth } from "app/auth";
+import { getGuestbookEntries } from "app/db/queries";
+import { SignIn, SignOut } from "./buttons";
+import { Suspense } from "react";
+import Form from "./form";
 
 export const metadata = {
-  title: 'Guestbook',
-  description: 'Sign my guestbook and leave your mark.',
+  title: "Guestbook",
+  description: "Sign my guestbook and leave your mark.",
 };
 
 export default function GuestbookPage() {

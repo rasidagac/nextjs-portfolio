@@ -1,5 +1,5 @@
-import NextAuth from 'next-auth';
-import GitHub from 'next-auth/providers/github';
+import NextAuth from "next-auth";
+import GitHub from "next-auth/providers/github";
 
 export const {
   handlers: { GET, POST },
@@ -12,6 +12,6 @@ export const {
     }),
   ],
   pages: {
-    signIn: '/sign-in',
+    signIn: "/sign-in",
   },
 });
