@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { TweetComponent } from "./tweet";
 import { highlight } from "sugar-high";
 import React from "react";
@@ -118,7 +118,7 @@ function Code({ children, ...props }) {
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
-function slugify(str) {
+function slugify(str: { toString: () => string }) {
   return str
     .toString()
     .toLowerCase()
@@ -129,8 +129,8 @@ function slugify(str) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-function createHeading(level) {
-  return ({ children }) => {
+function createHeading(level: number) {
+  return function Heading({ children }) {
     let slug = slugify(children);
     return React.createElement(
       `h${level}`,
@@ -165,7 +165,9 @@ let components = {
   LiveCode,
 };
 
-export function CustomMDX(props) {
+export function CustomMDX(
+  props: React.JSX.IntrinsicAttributes & MDXRemoteProps,
+) {
   return (
     <MDXRemote
       {...props}
