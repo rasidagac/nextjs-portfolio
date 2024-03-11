@@ -1,26 +1,26 @@
-import './global.css';
-import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
-import { Navbar } from './components/nav';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { SandpackCSS } from './blog/[slug]/sandpack';
+import "./global.css";
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Navbar } from "./components/nav";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SandpackCSS } from "./blog/[slug]/sandpack";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rasidagac.com'),
+  metadataBase: new URL("https://rasidagac.com"),
   title: {
-    default: 'Rasid Agac',
-    template: '%s | Rasid Agac',
+    default: "Rasid Agac",
+    template: "%s | Rasid Agac",
   },
-  description: 'Developer, writer, and creator.',
+  description: "Developer, writer, and creator.",
   openGraph: {
-    title: 'Rasid Agac',
-    description: 'Developer, writer, and creator.',
-    url: 'https://rasidagac.com',
-    siteName: 'Rasid Agac',
-    locale: 'en_US',
-    type: 'website',
+    title: "Rasid Agac",
+    description: "Developer, writer, and creator.",
+    url: "https://rasidagac.com",
+    siteName: "Rasid Agac",
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -28,22 +28,22 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   twitter: {
-    title: 'Rasid Agac',
-    card: 'summary_large_image',
+    title: "Rasid Agac",
+    card: "summary_large_image",
   },
   verification: {
-    google: 'eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw',
-    yandex: '14d2e73487fa6c71',
+    google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
+    yandex: "14d2e73487fa6c71",
   },
 };
 
-const cx = (...classes: string[]) => classes.filter(Boolean).join(' ');
+const cx = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
@@ -54,9 +54,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        'text-black bg-white dark:text-white dark:bg-[#111010]',
+        "text-black bg-white dark:text-white dark:bg-[#111010]",
         GeistSans.variable,
-        GeistMono.variable
+        GeistMono.variable,
       )}
     >
       <head>
